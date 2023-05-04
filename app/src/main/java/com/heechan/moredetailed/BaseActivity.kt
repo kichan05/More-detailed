@@ -14,12 +14,14 @@ abstract class BaseActivity<D : ViewDataBinding>(
     @LayoutRes
     val layoutId : Int
 ) : AppCompatActivity() {
+
     protected lateinit var binding : D
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, layoutId)
+        binding.lifecycleOwner = this
     }
 
     protected fun hideKeyboard(){
