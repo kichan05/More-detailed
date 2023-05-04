@@ -13,6 +13,7 @@ class MainViewModel : ViewModel() {
 
     val inputMessage = MutableLiveData<String>()
     val resultMessage = MutableLiveData<String>()
+    val directTranslatedMessage = MutableLiveData<String>()
     val startLang = MutableLiveData<String>()
 
     fun translated() {
@@ -29,6 +30,16 @@ class MainViewModel : ViewModel() {
             val jp2target = translated(input2jp, Language.JP, Language.EN)
 
             resultMessage.value = jp2target
+        }
+
+        viewModelScope.launch(
+            CoroutineExceptionHandler { _, e ->
+                Log.e("[Translated]", e.toString())
+            }
+        ) {
+            val result = translated(inputMessage.value!!, Language.KO, Language.EN)
+
+            directTranslatedMessage.value = result
         }
     }
 
