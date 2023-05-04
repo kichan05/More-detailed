@@ -14,7 +14,15 @@ class MainViewModel : ViewModel() {
     val inputMessage = MutableLiveData<String>()
     val resultMessage = MutableLiveData<String>()
     val directTranslatedMessage = MutableLiveData<String>()
-    val startLang = MutableLiveData<String>()
+
+    val langList = Language.values()
+    val selectStartLangIndex = MutableLiveData<Int>(0)
+
+    val startLang : Language
+        get() = langList.get(selectStartLangIndex.value!!)
+
+    val targetLang : Language
+        get() = langList.get((selectStartLangIndex.value!! + 1) % 2)
 
     fun translated() {
         if (inputMessage.value.isNullOrBlank()) {
@@ -26,8 +34,8 @@ class MainViewModel : ViewModel() {
                 Log.e("[Translated]", e.toString())
             }
         ) {
-            val input2jp = translated(inputMessage.value!!, Language.KO, Language.JP)
-            val jp2target = translated(input2jp, Language.JP, Language.EN)
+            val input2jp = translated(inputMessage.value!!, startLang, Language.JP)
+            val jp2target = translated(input2jp, Language.JP, targetLang)
 
             resultMessage.value = jp2target
         }
@@ -37,7 +45,7 @@ class MainViewModel : ViewModel() {
                 Log.e("[Translated]", e.toString())
             }
         ) {
-            val result = translated(inputMessage.value!!, Language.KO, Language.EN)
+            val result = translated(inputMessage.value!!, startLang, targetLang)
 
             directTranslatedMessage.value = result
         }

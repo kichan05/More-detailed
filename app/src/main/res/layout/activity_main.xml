@@ -62,6 +62,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             />
 
+        <Spinner
+            android:id="@+id/sp_main_selectLang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:selectedItemPosition="@={vm.selectStartLangIndex}"
+
+            app:layout_constraintTop_toBottomOf="@+id/txt_main_direct_result"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
