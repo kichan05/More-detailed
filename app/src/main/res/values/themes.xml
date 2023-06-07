@@ -13,6 +13,7 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
         <!--    Color state    -->
+        <item name="weight_bg_color">@color/white</item>
         <item name="txt_color">@color/black</item>
         <item name="btn_main_txt_color">@color/white</item>
         <item name="btn_main_bg_color">@color/blue_600</item>
@@ -20,8 +21,9 @@
         <item name="btn_red_bg_color">@color/red</item>
 
         <!--    Design System Theme    -->
+        <item name="android:spotShadowAlpha">0.5</item>
         <item name="android:textColor">?attr/txt_color</item>
-        <item name="android:fontFamily">@font/suit</item>
+        <item name="android:fontFamily">@font/gmarket</item>
         <item name="android:buttonStyle">@style/btn_main_style</item>
     </style>
 </resources>

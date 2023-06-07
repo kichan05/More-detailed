@@ -16,7 +16,7 @@ class MainViewModel : ViewModel() {
     val directTranslatedMessage = MutableLiveData<String>()
 
     val langList = Language.values()
-    val selectStartLangIndex = MutableLiveData<Int>(0)
+    val selectStartLangIndex = MutableLiveData(0)
 
     private val startLang : Language
         get() = langList[selectStartLangIndex.value!!]
