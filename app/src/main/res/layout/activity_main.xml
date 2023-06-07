@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.heechan.moredetailed.MainViewModel" />
@@ -19,12 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            app:layout_constraintTop_toTopOf="parent"
-
             android:hint="입력"
 
             android:text="@={vm.inputMessage}"
-            />
+
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txt_main_result"
@@ -33,34 +33,32 @@
 
             android:text="@{vm.resultMessage}"
 
-            app:layout_constraintTop_toBottomOf="@id/edt_main_message"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@id/edt_main_message" />
 
         <TextView
             android:id="@+id/txt_main_direct_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            tools:text="아 하기 싫다."
             android:text="@{vm.directTranslatedMessage}"
 
-            app:layout_constraintTop_toBottomOf="@id/txt_main_result"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@id/txt_main_result" />
 
         <Button
             android:id="@+id/btn_main_translated"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:text="번역"
-
             android:onClick="@{() -> vm.translated()}"
 
+            android:text="번역"
+
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Spinner
             android:id="@+id/sp_main_selectLang"
@@ -69,9 +67,17 @@
 
             android:selectedItemPosition="@={vm.selectStartLangIndex}"
 
-            app:layout_constraintTop_toBottomOf="@+id/txt_main_direct_result"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/txt_main_direct_result" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="클릭해주세요"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

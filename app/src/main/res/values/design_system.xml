@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="btn_main_style">
+        <item name="android:textColor">?attr/btn_main_txt_color</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textFontWeight">700</item>
+
+        <item name="android:background">@drawable/sh_radious_10</item>
+        <item name="android:backgroundTint">?attr/btn_main_bg_color</item>
+
+        <item name="android:padding">14dp</item>
+    </style>
+</resources>

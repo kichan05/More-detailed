@@ -18,11 +18,11 @@ class MainViewModel : ViewModel() {
     val langList = Language.values()
     val selectStartLangIndex = MutableLiveData<Int>(0)
 
-    val startLang : Language
-        get() = langList.get(selectStartLangIndex.value!!)
+    private val startLang : Language
+        get() = langList[selectStartLangIndex.value!!]
 
-    val targetLang : Language
-        get() = langList.get((selectStartLangIndex.value!! + 1) % 2)
+    private val targetLang : Language
+        get() = langList[(selectStartLangIndex.value!! + 1) % 2]
 
     fun translated() {
         if (inputMessage.value.isNullOrBlank()) {
