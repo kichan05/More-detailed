@@ -151,9 +151,10 @@
                 android:layout_marginTop="2dp"
                 android:fontFamily="@font/gmarket"
 
+                android:hint="번역할 글을 입력하면\n자동으로 일본어를 거쳐서 번역해줍니다."
                 android:letterSpacing="0.05"
-                android:text="@{vm.resultMessage, default=`번역할 글을 입력하면\n자동으로 일본어를 거쳐서 번역해줍니다.`}"
-                android:textColor="#9C9C9C" />
+
+                android:text="@{vm.resultMessage}" />
         </LinearLayout>
 
         <LinearLayout
@@ -181,9 +182,9 @@
                 android:layout_marginTop="2dp"
                 android:fontFamily="@font/gmarket"
 
+                android:hint="일본어를 거치지 않고 번역한 글입니다."
                 android:letterSpacing="0.05"
-                android:text="@{vm.directTranslatedMessage, default=`일본어를 거치지 않고 번역한 글입니다.`}"
-                android:textColor="#9C9C9C" />
+                android:text="@{vm.directTranslatedMessage}" />
         </LinearLayout>
 
         <View

@@ -17,7 +17,6 @@
     <style name="txt_style">
         <item name="android:textColor">?attr/txt_color</item>
         <item name="android:fontFamily">@font/gmarket</item>
-        <item name="android:textFontWeight">100</item>
         <item name="android:textSize">15sp</item>
         <item name="android:lineSpacingExtra">3dp</item>
     </style>
