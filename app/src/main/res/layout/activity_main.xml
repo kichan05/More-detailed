@@ -4,22 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.heechan.moredetailed.MainViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".MainActivity">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/tb_main"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/weight_bg_color"
-            android:elevation="2dp"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -31,105 +32,177 @@
             app:titleTextAppearance="@style/action_bar_title_type"
             app:titleTextColor="?attr/colorPrimary" />
 
-        <TextView
-            android:id="@+id/txt_main_langLabelKo"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/sh_translate_label"
+            android:background="?attr/weight_bg_color"
+            android:paddingVertical="13dp">
 
-            android:backgroundTint="@color/blue_600"
-            android:paddingHorizontal="35dp"
-            android:paddingVertical="8dp"
+            <TextView
+                android:id="@+id/txt_main_langLabelKo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sh_translate_label"
 
-            android:text="한국어"
+                android:backgroundTint="@color/blue_600"
+                android:paddingHorizontal="35dp"
+                android:paddingVertical="8dp"
 
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            app:layout_constraintEnd_toStartOf="@id/img_main_translate_arrow"
+                android:text="한국어"
+                android:textColor="@color/white"
 
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tb_main" />
+                android:textFontWeight="700"
+                android:textSize="13dp"
+                app:layout_constraintEnd_toStartOf="@id/img_main_translate_arrow"
 
-        <ImageView
-            android:id="@+id/img_main_translate_arrow"
-            android:layout_width="wrap_content"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_main_translate_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+
+                android:src="@drawable/ic_translate_arrow"
+
+                app:layout_constraintBottom_toBottomOf="@id/txt_main_langLabelKo"
+                app:layout_constraintEnd_toStartOf="@id/txt_main_langLabelEn"
+                app:layout_constraintStart_toEndOf="@id/txt_main_langLabelKo"
+                app:layout_constraintTop_toTopOf="@id/txt_main_langLabelKo" />
+
+            <TextView
+                android:id="@+id/txt_main_langLabelEn"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sh_translate_label"
+                android:paddingHorizontal="35dp"
+                android:paddingVertical="8dp"
+
+                android:text="영어"
+                android:textColor="@color/blue_600"
+                android:textFontWeight="700"
+                android:textSize="13dp"
+
+                app:layout_constraintBottom_toBottomOf="@+id/img_main_translate_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_main_translate_arrow"
+                app:layout_constraintTop_toTopOf="@+id/img_main_translate_arrow" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="8dp"
+            android:background="?attr/weight_bg_color"
+            android:minHeight="100dp"
+            android:orientation="vertical"
 
-            android:src="@drawable/ic_translate_arrow"
+            android:paddingHorizontal="@dimen/main_weight_padding_horizontal"
 
-            app:layout_constraintBottom_toBottomOf="@id/txt_main_langLabelKo"
-            app:layout_constraintEnd_toStartOf="@id/txt_main_langLabelEn"
-            app:layout_constraintStart_toEndOf="@id/txt_main_langLabelKo"
-            app:layout_constraintTop_toTopOf="@id/txt_main_langLabelKo" />
+            android:paddingVertical="@dimen/main_weight_padding_vertical">
 
-        <TextView
-            android:id="@+id/txt_main_langLabelEn"
+            <TextView
+                style="@style/txt_title_style"
+                android:layout_width="wrap_content"
 
-            android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="번역할 글" />
+
+            <EditText
+                style="@style/txt_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:background="?attr/weight_bg_color"
+                android:fontFamily="@font/gmarket"
+
+                android:hint="번역할 글을 여기에 입력해주세요"
+                android:inputType="text"
+                android:letterSpacing="0.05"
+                android:text="@={vm.inputMessage}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/sh_translate_label"
-            android:paddingHorizontal="35dp"
-            android:paddingVertical="8dp"
+            android:layout_marginTop="8dp"
+            android:background="?attr/weight_bg_color"
+            android:minHeight="100dp"
+            android:orientation="vertical"
 
-            android:text="영어"
-            android:textColor="@color/blue_600"
-            android:textFontWeight="700"
+            android:paddingHorizontal="@dimen/main_weight_padding_horizontal"
 
-            app:layout_constraintBottom_toBottomOf="@+id/img_main_translate_arrow"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_main_translate_arrow"
-            app:layout_constraintTop_toTopOf="@+id/img_main_translate_arrow" />
+            android:paddingVertical="@dimen/main_weight_padding_vertical">
 
+            <TextView
+                style="@style/txt_title_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        <!--        <EditText-->
-        <!--            android:id="@+id/edt_main_message"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
+                android:text="번역된 글" />
 
-        <!--            android:hint="입력"-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/gmarket"
 
-        <!--            tools:text = "안녕하세요"-->
-        <!--            android:text="@={vm.inputMessage}"-->
+                android:letterSpacing="0.05"
+                android:text="@{vm.resultMessage, default=`번역할 글을 입력하면\n자동으로 일본어를 거쳐서 번역해줍니다.`}"
+                android:textColor="#9C9C9C" />
+        </LinearLayout>
 
-        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?attr/weight_bg_color"
+            android:minHeight="100dp"
+            android:orientation="vertical"
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/txt_main_result"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
+            android:paddingHorizontal="@dimen/main_weight_padding_horizontal"
 
-        <!--            tools:text="Hello World"-->
-        <!--            android:text="@{vm.resultMessage}"-->
+            android:paddingVertical="@dimen/main_weight_padding_vertical">
 
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/edt_main_message" />-->
+            <TextView
+                style="@style/txt_title_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/txt_main_direct_result"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
+                android:text="직역한 글" />
 
-        <!--            tools:text="Hi"-->
-        <!--            android:text="@{vm.directTranslatedMessage}"-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/gmarket"
 
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/txt_main_result" />-->
+                android:letterSpacing="0.05"
+                android:text="@{vm.directTranslatedMessage, default=`일본어를 거치지 않고 번역한 글입니다.`}"
+                android:textColor="#9C9C9C" />
+        </LinearLayout>
 
-        <!--        <Button-->
-        <!--            android:id="@+id/btn_main_translated"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-        <!--            android:onClick="@{() -> vm.translated()}"-->
+        <Button
+            android:id="@+id/btn_main_translated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
 
-        <!--            android:text="번역"-->
+            android:layout_marginBottom="25dp"
 
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent" />-->
+            android:onClick="@{() -> vm.translated()}"
+
+            android:text="번역" />
 
         <!--        <Spinner-->
         <!--            android:id="@+id/sp_main_selectLang"-->
@@ -140,5 +213,5 @@
 
         <!--            app:layout_constraintStart_toStartOf="parent"-->
         <!--            app:layout_constraintTop_toBottomOf="@+id/txt_main_direct_result" />-->
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/red</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
 
         <!--    Color state    -->
         <item name="weight_bg_color">#ffffff</item>
@@ -25,9 +25,9 @@
         <item name="btn_red_bg_color">@color/red</item>
 
         <!--    Design System Theme    -->
+        <item name="android:windowBackground">?attr/bg_color</item>
         <item name="android:spotShadowAlpha">0.5</item>
-        <item name="android:textColor">?attr/txt_color</item>
-        <item name="android:fontFamily">@font/gmarket</item>
+        <item name="android:textViewStyle">@style/txt_style</item>
         <item name="android:buttonStyle">@style/btn_main_style</item>
     </style>
 </resources>
