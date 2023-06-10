@@ -2,7 +2,7 @@
 <resources>
     <style name="btn_main_style">
         <item name="android:textColor">?attr/btn_main_txt_color</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textFontWeight">700</item>
 
         <item name="android:background">@drawable/sh_radious_10</item>

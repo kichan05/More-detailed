@@ -13,10 +13,14 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
         <!--    Color state    -->
-        <item name="weight_bg_color">@color/white</item>
+        <item name="weight_bg_color">#ffffff</item>
+        <item name="bg_color">#F4F4F4</item>
+
         <item name="txt_color">@color/black</item>
+
         <item name="btn_main_txt_color">@color/white</item>
         <item name="btn_main_bg_color">@color/blue_600</item>
+
         <item name="btn_red_txt_color">@color/white</item>
         <item name="btn_red_bg_color">@color/red</item>
 
