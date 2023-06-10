@@ -7,22 +7,29 @@ import androidx.lifecycle.viewModelScope
 import com.heechan.moredetailed.model.service.PapagoService
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
+import kotlin.math.log
 
 class MainViewModel : ViewModel() {
     private val papagoService = RetrofitClient.get().create(PapagoService::class.java)
 
     val inputMessage = MutableLiveData<String>()
-    val resultMessage = MutableLiveData<String>("번역할 글을 입력하면\n자동으로 일본어를 거쳐서 번역해줍니다.")
-    val directTranslatedMessage = MutableLiveData<String>("일본어를 거치지 않고 번역한 글입니다.")
+    val resultMessage = MutableLiveData("번역할 글을 입력하면\n자동으로 일본어를 거쳐서 번역해줍니다.")
+    val directTranslatedMessage = MutableLiveData("일본어를 거치지 않고 번역한 글입니다.")
 
     val langList = Language.values()
     val selectStartLangIndex = MutableLiveData(0)
 
-    private val startLang : Language
+    val startLang : Language
         get() = langList[selectStartLangIndex.value!!]
 
-    private val targetLang : Language
+    val targetLang : Language
         get() = langList[(selectStartLangIndex.value!! + 1) % 2]
+
+    fun changeLanguage() {
+        selectStartLangIndex.value = selectStartLangIndex.value?.plus(1)?.rem(2)
+
+        Log.d("[StartLanage]", selectStartLangIndex.value.toString())
+    }
 
     fun translated() {
         if (inputMessage.value.isNullOrBlank()) {

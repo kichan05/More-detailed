@@ -28,7 +28,6 @@
 
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_logo_small"
-            app:title="더 자세한"
             app:titleTextAppearance="@style/action_bar_title_type"
             app:titleTextColor="?attr/colorPrimary" />
 
@@ -40,15 +39,15 @@
 
             <TextView
                 android:id="@+id/txt_main_langLabelKo"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/sh_translate_label"
-
                 android:backgroundTint="@color/blue_600"
-                android:paddingHorizontal="35dp"
+                android:gravity="center"
+
                 android:paddingVertical="8dp"
 
-                android:text="한국어"
+                android:text="@{vm.langList[vm.selectStartLangIndex].nameKo, default=`한국어`}"
                 android:textColor="@color/white"
 
                 android:textFontWeight="700"
@@ -74,14 +73,14 @@
 
             <TextView
                 android:id="@+id/txt_main_langLabelEn"
-
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+
                 android:background="@drawable/sh_translate_label"
-                android:paddingHorizontal="35dp"
+                android:gravity="center"
                 android:paddingVertical="8dp"
 
-                android:text="영어"
+                android:text="@{vm.langList[(vm.selectStartLangIndex + 1) % 2   ].nameKo, default=`영어`}"
                 android:textColor="@color/blue_600"
                 android:textFontWeight="700"
                 android:textSize="13dp"
@@ -188,8 +187,9 @@
         </LinearLayout>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
             android:layout_weight="1" />
 
         <Button
@@ -203,15 +203,5 @@
             android:onClick="@{() -> vm.translated()}"
 
             android:text="번역" />
-
-        <!--        <Spinner-->
-        <!--            android:id="@+id/sp_main_selectLang"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-
-        <!--            android:selectedItemPosition="@={vm.selectStartLangIndex}"-->
-
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/txt_main_direct_result" />-->
     </LinearLayout>
 </layout>

@@ -2,6 +2,8 @@ package com.heechan.moredetailed
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import com.heechan.moredetailed.databinding.ActivityMainBinding
@@ -13,12 +15,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
 
-//        binding.btnMainTranslated.setOnClickListener { viewModel.translated() }
+        binding.txtMainLangLabelEn.setOnClickListener(changeLang)
+        binding.txtMainLangLabelKo.setOnClickListener(changeLang)
+        binding.imgMainTranslateArrow.setOnClickListener(changeLang)
+    }
 
-//        binding.spMainSelectLang.adapter = ArrayAdapter(
-//            this,
-//            android.R.layout.simple_dropdown_item_1line,
-//            viewModel.langList.filter { it.langCode != "ja" }.map { it.nameKo }
-//        )
+    val changeLang = { _ : View ->
+        viewModel.changeLanguage()
+        val animTree = AnimationUtils.loadAnimation(this, R.anim.ani_roate_360)
+        binding.imgMainTranslateArrow.startAnimation(animTree)
     }
 }
